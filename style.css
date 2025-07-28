@@ -463,7 +463,6 @@ footer {
     .main-logo { width: clamp(300px, 80vw, 600px); }
     .brand-text { font-size: clamp(2.5rem, 8vw, 4.5rem); }
 }
-```
 .container {
     height: 100vh;
     display: flex;
