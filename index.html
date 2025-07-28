@@ -491,7 +491,7 @@
             to { background-position: 1000px 0; }
         }
 
-        
+
 
         /* Hover Glow */
         .interactive-glow {
@@ -583,13 +583,13 @@
         * {
             margin-bottom: 0 !important;
         }
-        
+
         html, body {
             height: 100%;
             margin: 0 !important;
             padding: 0 !important;
         }
-        
+
         body::after {
             display: none !important;
         }
@@ -680,7 +680,7 @@
             <div class="starfield"></div>
             <div class="interactive-glow" id="glow"></div>
 
-            
+
             <section class="product-section">
                 <div class="container">
                     <div class="hoodie-gallery fade-in">
@@ -716,52 +716,34 @@
                 </div>
             </section>
 
-          <section class="newsletter fade-in">
-            <div class="container">
-              <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
-              <p class="fade-in-delay-2"> 
-                Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates. Stay glitched. Stay looped. Stay legendary.
-             </p>
-    
-             <form class="email-form fade-in-delay-3" name="contact" method="POST" data-netlify="true">
-               <!-- 👇 REQUIRED for Netlify to pick up the form -->
-               <input type="hidden" name="form-name" value="contact" />
-      
-               <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
-              <button type="submit" class="email-button">Sync</button>
-             </form>
-            </div>
-         </section>
-         <!-- ADD THIS BELOW THE FORM -->
-<div id="confirmation-message" style="display: none; margin-top: 1rem; color: #fff;">
-  ✨ Thank you for syncing with the glitchverse ✨
-</div>
+    <section class="newsletter fade-in">
+      <div class="container">
+        <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
+        <p class="fade-in-delay-2">
+          Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates.
+          Stay glitched. Stay looped. Stay legendary.
+        </p>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success.html"
+          class="email-form fade-in-delay-3"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="email"
+            class="email-input"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit" class="email-button">Sync</button>
+        </form>
+      </div>
+    </section>
 
-<script>
-  const form = document.querySelector("form[name='contact']");
-  const confirmation = document.getElementById("confirmation-message");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      form.style.display = "none";
-      confirmation.style.display = "block";
-    } catch (error) {
-      alert("Hmm... glitch detected. Try again in a moment?");
-      console.error("Form submission error:", error);
-    }
-  });
-</script>
-        
             <footer>
                 <div class="container">
                     <p>&copy; 2025 Quantum Drip. Made with quantum entanglement and emotional calculus.</p>
@@ -803,190 +785,3 @@
             const flipBtns = document.querySelectorAll('.flip-btn');
             let isFlipped = false;
 
-            // Click flipper to rotate
-            flipper.addEventListener('click', () => {
-                toggleFlip();
-            });
-
-            // Button controls
-            flipBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const side = btn.dataset.side;
-
-                    flipBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    if (side === 'back' && !isFlipped) {
-                        toggleFlip();
-                    } else if (side === 'front' && isFlipped) {
-                        toggleFlip();
-                    }
-                });
-            });
-
-            function toggleFlip() {
-                isFlipped = !isFlipped;
-                flipper.classList.toggle('flipped');
-
-                // Update active button
-                flipBtns.forEach(btn => btn.classList.remove('active'));
-                const targetBtn = document.querySelector(`[data-side="${isFlipped ? 'back' : 'front'}"]`);
-                targetBtn.classList.add('active');
-            }
-
-            // Swipe support for mobile
-            let startX = 0;
-            let endX = 0;
-
-            flipper.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            });
-
-            flipper.addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                const diff = startX - endX;
-
-                if (Math.abs(diff) > 50) { // Minimum swipe distance
-                    toggleFlip();
-                }
-            });
-
-            // Unified Audio Control - Moved here
-            const vibeBtn = document.getElementById("vibeInBtn");
-            const track = document.getElementById("quantumTrack");
-            const warning = document.getElementById("audioWarning");
-            const logo = document.querySelector('.logo');
-
-            // Manual click backup
-            vibeBtn.addEventListener("click", () => {
-                const playAttempt = track.play();
-                if (playAttempt !== undefined) {
-                    playAttempt.then(() => {
-                        vibeBtn.classList.add("playing");
-                        // Change logo color to match the beat
-                        if (logo) {
-                            logo.style.filter = 'drop-shadow(0 0 50px rgba(0, 255, 127, 0.9)) hue-rotate(120deg)';
-                            logo.style.animation = 'beat-pulse 0.5s ease-in-out infinite';
-                        }
-                    }).catch(() => {
-                        warning.style.display = "block";
-                    });
-                }
-            });
-
-            // Reset logo when audio ends or pauses
-            track.addEventListener('pause', () => {
-                if (logo) {
-                    logo.style.filter = 'drop-shadow(0 0 30px rgba(255, 105, 180, 0.6))';
-                    logo.style.animation = 'liquid-logo-alive 4s ease-in-out infinite';
-                }
-                vibeBtn.classList.remove("playing");
-            });
-
-            track.addEventListener('ended', () => {
-                if (logo) {
-                    logo.style.filter = 'drop-shadow(0 0 30px rgba(255, 105, 180, 0.6))';
-                    logo.style.animation = 'liquid-logo-alive 4s ease-in-out infinite';
-                }
-                vibeBtn.classList.remove("playing");
-            });
-        }
-
-        function initLazyLoading() {
-            const lazyImages = document.querySelectorAll('.lazy-load');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-load');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            lazyImages.forEach(img => imageObserver.observe(img));
-        }
-
-        function initDeferredAnimations() {
-            // Add animation classes after content is loaded
-            document.body.classList.add('animations-loaded');
-        }
-
-         // Logo Animation on Scroll - Using class toggles to prevent disappearing
-        const logo = document.querySelector('.logo');
-        if (logo) {
-            const observer = new IntersectionObserver(
-              (entries) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    logo.classList.remove('logo-hidden');
-                  } else {
-                    logo.classList.add('logo-hidden');
-                  }
-                });
-              },
-              { threshold: 0.1 }
-            );
-
-            observer.observe(logo);
-        }
-
-        // Glitch effect on click
-        document.addEventListener('click', (e) => {
-            const glitchElements = ['.brand-text', '.subtitle', '.main-logo'];
-            glitchElements.forEach(selector => {
-                const element = document.querySelector(selector);
-                if (element) {
-                    element.style.animation = 'none';
-                    element.style.filter = `hue-rotate(${Math.random() * 360}deg) saturate(${1 + Math.random()}) contrast(${1 + Math.random() * 0.5})`;
-                    element.style.transform = `translateX(${(Math.random() - 0.5) * 10}px) translateY(${(Math.random() - 0.5) * 5}px)`;
-
-                    setTimeout(() => {
-                        element.style.animation = '';
-                        element.style.filter = '';
-                        element.style.transform = '';
-                    }, 200);
-                }
-            });
-        });
-
-        // Form handling - store emails in localStorage (simple solution)
-        // document.querySelector('.email-form').addEventListener('submit', function(e) {
-        //     e.preventDefault();
-        //     const email = this.querySelector('.email-input').value;
-        //     if (email) {
-        //         // Store email in localStorage (you can later export this or connect to a real service)
-        //         let emails = JSON.parse(localStorage.getItem('quantumDripEmails')) || [];
-        //         if (!emails.includes(email)) {
-        //             emails.push(email);
-        //             localStorage.setItem('quantumDripEmails', JSON.stringify(emails));
-        //         }
-
-        //         alert('Welcome to the Quantum Constellation! 🌌\n\nEmail saved locally. Check browser dev tools > Application > Local Storage to see stored emails.');
-        //         this.querySelector('.email-input').value = '';
-        //     }
-        // });
-
-        // Buy Now functionality - simple alert for now (you can connect to Stripe, PayPal, etc. later)
-        function handleBuyNow() {
-            alert('🌌 Quantum Purchase Initiated! 🌌\n\nFor now, this is just a demo. You can later connect this to:\n• Stripe for payments\n• Shopify\n• Square\n• PayPal\n• Or any e-commerce platform\n\nNo rage-quitting required! 🚀');
-        }
-
-        // Dream-like scroll effects
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const heroEl = document.querySelector('.hero');
-            heroEl.style.transform = `translateY(${rate}px)`;
-
-            // Parallax stars
-            const starfield = document.querySelector('.starfield');
-            if(starfield) {
-                starfield.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 + scrolled * 0.0002})`;
-            }
-        });
-    </script>
-</body>
-</html>
