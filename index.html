@@ -780,8 +780,31 @@
                 glow.style.opacity = '0';
             });
 
-            // Hoodie flip functionality - moved here for dynamic content
-            const flipper = document.getElementById('hoodie-flipper');
-            const flipBtns = document.querySelectorAll('.flip-btn');
-            let isFlipped = false;
+            // Note: Hoodie flip functionality moved to script.js initHoodieGallery()
+        }
+
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            
+            lazyImages.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        function initDeferredAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+    </script>
+</body>
+</html>
 
