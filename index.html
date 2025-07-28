@@ -629,6 +629,34 @@
         </div>
     </div>
 
+    <!-- Email subscription form - moved from dynamic content for Netlify processing -->
+    <section class="newsletter fade-in">
+      <div class="container">
+        <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
+        <p class="fade-in-delay-2">
+          Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates.
+          Stay glitched. Stay looped. Stay legendary.
+        </p>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success.html"
+          class="email-form fade-in-delay-3"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="email"
+            class="email-input"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit" class="email-button">Sync</button>
+        </form>
+      </div>
+    </section>
+
     <!-- Placeholder for dynamically loaded content -->
     <div id="dynamicContent"></div>
 
@@ -695,34 +723,6 @@
                     </div>
                 </div>
             </section>
-
-    <section class="newsletter fade-in">
-      <div class="container">
-        <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
-        <p class="fade-in-delay-2">
-          Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates.
-          Stay glitched. Stay looped. Stay legendary.
-        </p>
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          action="/success.html"
-          class="email-form fade-in-delay-3"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <input
-            type="email"
-            class="email-input"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-          <button type="submit" class="email-button">Sync</button>
-        </form>
-      </div>
-    </section>
-
 
             <footer>
                 <div class="container">
