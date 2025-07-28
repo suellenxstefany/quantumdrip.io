@@ -32,6 +32,7 @@
             height: 100vh !important;
             max-height: 100vh !important;
             line-height: 1.5;
+            visibility: visible;
         }
 
         body::after {
@@ -45,6 +46,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .container.show {
+            opacity: 1;
         }
 
         .hero {
@@ -113,31 +120,9 @@
             transform: translateY(0);
         }
 
-        /* Loading indicator */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s ease;
-        }
+        
 
-        .loading-text {
-            color: #ff69b4;
-            font-size: 1.2rem;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+        
 
         /* Critical responsive styles */
         @media (max-width: 768px) {
@@ -618,10 +603,7 @@
     </style>
 </head>
 <body>
-    <!-- Loading overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-text">Initializing Quantum Matrix...</div>
-    </div>
+    
 
     <!-- Critical above-the-fold content -->
     <div class="hero" id="hero">
@@ -661,20 +643,18 @@
 
     <!-- Inline critical JavaScript -->
     <script>
-        // Remove loading overlay once critical content is loaded
-        window.addEventListener('load', function() {
-            const overlay = document.getElementById('loadingOverlay');
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 500);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show main content immediately
+            const container = document.querySelector('.hero .container');
+            if (container) {
+                container.classList.add('show');
+            }
+            
+            // Load dynamic content immediately
+            loadDynamicContent();
         });
 
-        // Load non-critical content after initial render
-        setTimeout(function() {
-            loadDynamicContent();
-        }, 100);
-
+        // Load dynamic content
         function loadDynamicContent() {
             const dynamicHTML = `
             <div class="starfield"></div>
@@ -692,10 +672,10 @@
                         <div class="hoodie-container">
                             <div class="hoodie-flipper" id="hoodie-flipper">
                                 <div class="hoodie-side hoodie-front">
-                                    <img data-src="hoodie-front.jpg" alt="Quantum Drip Hoodie - Front" class="lazy-load" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Front View<br><small>Image not found</small></div>'">
+                                    <img src="hoodie-front.jpg" alt="Quantum Drip Hoodie - Front" onload="this.style.opacity='1'" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Front View<br><small>Image not found</small></div>'">
                                 </div>
                                 <div class="hoodie-side hoodie-back">
-                                    <img data-src="hoodie-back.jpg" alt="Quantum Drip Hoodie - Back" class="lazy-load" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Back View<br><small>Image not found</small></div>'">
+                                    <img src="hoodie-back.jpg" alt="Quantum Drip Hoodie - Back" onload="this.style.opacity='1'" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Back View<br><small>Image not found</small></div>'">
                                 </div>
                             </div>
                         </div>
@@ -751,13 +731,25 @@
             </footer>
             `;
 
-            document.getElementById('dynamicContent').innerHTML = dynamicHTML;
+            const dynamicContainer = document.getElementById('dynamicContent');
+            if (dynamicContainer) {
+                dynamicContainer.innerHTML = dynamicHTML;
+                
+                // Force a reflow to ensure content is rendered
+                dynamicContainer.offsetHeight;
+                
+                // Initialize lazy loading for images
+                initLazyLoading();
 
-            // Initialize lazy loading for images
-            initLazyLoading();
-
-            // Initialize deferred animations
-            initDeferredAnimations();
+                // Initialize deferred animations
+                initDeferredAnimations();
+                
+                // Show all containers
+                const containers = document.querySelectorAll('.container');
+                containers.forEach(container => {
+                    container.classList.add('show');
+                });
+            }
 
             //Interactive mouse tracking - moved here for dynamic content
             const hero = document.getElementById('hero');
@@ -785,7 +777,7 @@
 
         function initLazyLoading() {
             const lazyImages = document.querySelectorAll('.lazy-load');
-            
+
             lazyImages.forEach(img => {
                 if (img.dataset.src) {
                     img.src = img.dataset.src;
@@ -796,7 +788,7 @@
 
         function initDeferredAnimations() {
             const fadeElements = document.querySelectorAll('.fade-in');
-            
+
             fadeElements.forEach((element, index) => {
                 setTimeout(() => {
                     element.style.opacity = '1';
@@ -807,4 +799,3 @@
     </script>
 </body>
 </html>
-
