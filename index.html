@@ -716,28 +716,22 @@
                 </div>
             </section>
 
-            <section class="newsletter fade-in">
-  <div class="container">
-    <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
-    <p class="fade-in-delay-2">
-      Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates. Stay glitched. Stay looped. Stay legendary.
-    </p>
-
-    <form class="email-form fade-in-delay-3" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <!-- Hidden Inputs Required for Netlify -->
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="hidden" name="bot-field" />
+          <section class="newsletter fade-in">
+            <div class="container">
+              <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
+              <p class="fade-in-delay-2"> 
+                Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates. Stay glitched. Stay looped. Stay legendary.
+             </p>
+    
+             <form class="email-form fade-in-delay-3" name="contact" method="POST" data-netlify="true">
+               <!-- 👇 REQUIRED for Netlify to pick up the form -->
+               <input type="hidden" name="form-name" value="contact" />
       
-      <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
-      <button type="submit" class="email-button">Sync</button>
-    </form>
-
-    <!-- ✨ This will show after a successful submit -->
-    <div id="confirmation-message" class="fade-in" style="display: none; margin-top: 1rem; color: #fff;">
-      🔮 Thank you for syncing with the glitchverse. See you on the other side.
-    </div>
-  </div>
-</section>
+               <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
+              <button type="submit" class="email-button">Sync</button>
+             </form>
+            </div>
+         </section>
 
 <script>
   const form = document.querySelector("form[name='contact']");
