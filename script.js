@@ -1,4 +1,3 @@
-
 // Optimized JavaScript with deferred execution
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -41,3 +40,5 @@ function initHeroInteractions() {
 
     hero.addEventListener('mouseleave', () => {
         glow.style.opacity = '0';
+    });
+}
