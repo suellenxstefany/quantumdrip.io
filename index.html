@@ -229,3 +229,729 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            background: none !important;
+        }
+
+        .hoodie-gallery {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: transparent !important;
+        }
+
+        .flip-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .flip-btn {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            color: #fff;
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px rgba(127, 90, 240, 0.2);
+            margin: 0 5px;
+        }
+
+        .flip-btn.active {
+            background: linear-gradient(120deg, #b57edc, #7f5af0, #63c5da);
+            background-size: 200% 200%;
+            box-shadow:
+                0 0 20px rgba(179, 121, 255, 0.7),
+                0 0 50px rgba(127, 90, 240, 0.5);
+        }
+
+        .hoodie-container {
+            perspective: 1000px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hoodie-flipper {
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            position: relative;
+            border-radius: 12px;
+            width: 100%;
+            height: 1000px;
+        }
+
+        .hoodie-flipper.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .hoodie-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hoodie-front {
+            background: transparent;
+        }
+
+        .hoodie-back {
+            background: transparent;
+            transform: rotateY(180deg);
+        }
+
+        .hoodie-side img {
+            max-width: 100%;
+            max-height: 1000px;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .hoodie-container {
+            perspective: 1000px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 1000px;
+        }
+
+        .product-info {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .product-info h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            font-size: 1rem;
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .buy-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .quantum-button {
+            background: linear-gradient(120deg, #b57edc, #7f5af0, #63c5da);
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: #fff;
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(127, 90, 240, 0.5);
+            animation: cosmicPulse 5s ease-in-out infinite, shimmer 6s linear infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .quantum-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(127, 90, 240, 0.7);
+        }
+
+        .quantum-button .btn-text {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .quantum-button .amazon-text,
+        .quantum-button .escape-text {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Newsletter styles */
+        .newsletter {
+            background: none !important;
+            padding: 0;
+            text-align: center;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .newsletter h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .email-form {
+            display: flex;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            width: 70%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            backdrop-filter: blur(12px);
+        }
+
+        .email-button {
+            width: 30%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            background: linear-gradient(120deg, #b57edc, #7f5af0, #63c5da);
+            color: #fff;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        .email-button:hover {
+            background: linear-gradient(120deg, #63c5da, #7f5af0, #b57edc);
+        }
+
+        /* Footer styles */
+        footer {
+            background: none !important;
+            padding: 0;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            border: none;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+
+        /* Starfield */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: url("starfield.png") repeat top center;
+            z-index: -1;
+            animation: moveStars 200s linear infinite;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        @keyframes moveStars {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 0; }
+        }
+
+        
+
+        /* Hover Glow */
+        .interactive-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(102, 51, 153, 0.3), transparent);
+            border-radius: 50%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Keyframes for Glitch */
+        @keyframes glitch-skew {
+            0% {
+                transform: skew(0deg);
+            }
+            10% {
+                transform: skew(5deg);
+            }
+            20% {
+                transform: skew(-5deg);
+            }
+            30% {
+                transform: skew(3deg);
+            }
+            40% {
+                transform: skew(-2deg);
+            }
+            50% {
+                transform: skew(1deg);
+            }
+            60% {
+                transform: skew(-1deg);
+            }
+            70% {
+                transform: skew(0deg);
+            }
+            100% {
+                transform: skew(0deg);
+            }
+        }
+
+        @keyframes glitch-color {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                filter: hue-rotate(10deg);
+            }
+            50% {
+                filter: hue-rotate(-10deg);
+            }
+            75% {
+                filter: hue-rotate(5deg);
+            }
+            100% {
+                filter: hue-rotate(0deg);
+            }
+        }
+
+        @keyframes liquid-logo-alive {
+            0% {
+                filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.8));
+            }
+            100% {
+                filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.6));
+            }
+        }
+
+        @keyframes beat-pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Last resort - collapse all unexpected spacing */
+        * {
+            margin-bottom: 0 !important;
+        }
+        
+        html, body {
+            height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        body::after {
+            display: none !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hoodie-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                width: 100%;
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .email-button {
+                width: 100%;
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Initializing Quantum Matrix...</div>
+    </div>
+
+    <!-- Critical above-the-fold content -->
+    <div class="hero" id="hero">
+        <div class="container">
+            <div class="logo-container fade-in">
+                <div class="main-logo">
+                    <img src="Not a Breakdown-6.png" alt="Quantum Drip Logo" class="logo logo-main" />
+                </div>
+
+            <div id="audioWrapper">
+                <button id="vibeInBtn" class="vibe-in-button">
+                    <span class="vibe-text">Summon the Drip</span>
+                    <audio id="quantumTrack" preload="none" loop style="display: none;">
+                        <source src="makemefeel.m4a" type="audio/mp4">
+                        <source src="make-you-feel-like-remix.mp3" type="audio/mpeg">
+                    </audio>
+                </button>
+                <p id="audioWarning">⚠️ Audio format not supported. Try using Chrome or upload an .mp3 fallback.</p>
+            </div>
+
+            <h1 class="brand-text fade-in fade-in-delay-1" style="margin-top: 40px;">QUANTUM DRIP</h1>
+            <p class="subtitle fade-in fade-in-delay-2" style="font-style: normal; margin-bottom: 50px;">Born in the void between consciousness and capitalism, Quantum Drip™ is your wearable declaration that you're surviving the simulation stylishly, chaotically, and maybe emotionally sideways.</p>
+        </div>
+    </div>
+
+    <!-- Placeholder for dynamically loaded content -->
+    <div id="dynamicContent"></div>
+
+    <!-- Deferred styles and animations -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+    <!-- Load fonts after critical content -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Comfortaa:wght@300;400;500;600;700&family=Anton&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Deferred JavaScript -->
+    <script defer src="script.js"></script>
+
+    <!-- Inline critical JavaScript -->
+    <script>
+        // Remove loading overlay once critical content is loaded
+        window.addEventListener('load', function() {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
+        });
+
+        // Load non-critical content after initial render
+        setTimeout(function() {
+            loadDynamicContent();
+        }, 100);
+
+        function loadDynamicContent() {
+            const dynamicHTML = `
+            <div class="starfield"></div>
+            <div class="interactive-glow" id="glow"></div>
+
+            
+            <section class="product-section">
+                <div class="container">
+                    <div class="hoodie-gallery fade-in">
+                        <div class="flip-controls">
+                            <button class="flip-btn active" data-side="front">Front View</button>
+                            <button class="flip-btn" data-side="back">Back View</button>
+                        </div>
+
+                        <div class="hoodie-container">
+                            <div class="hoodie-flipper" id="hoodie-flipper">
+                                <div class="hoodie-side hoodie-front">
+                                    <img src="unisex-premium-hoodie-white-front-687ee3a97eec2.png" alt="Quantum Drip Hoodie - Front" class="lazy-load" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Front View<br><small>Image not found</small></div>'">
+                                </div>
+                                <div class="hoodie-side hoodie-back">
+                                    <img src="unisex-premium-hoodie-white-back-687ee3a980df4.png" alt="Quantum Drip Hoodie - Back" class="lazy-load" onerror="this.parentElement.innerHTML='<div class=hoodie-placeholder>Back View<br><small>Image not found</small></div>'">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-info fade-in fade-in-delay-1">
+                            <h2>Not a Breakdown, Just Quantum Processing</h2>
+                            <p style="font-size: 1.2rem; color: #cccccc; margin-bottom: 35px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">When reality glitches and your consciousness shifts dimensions - that's not a breakdown, that's just quantum processing. Wear your existential recalibration with pride.</p>
+                            <p style="font-size: 1.1rem; color: #999; margin-bottom: 40px; line-height: 1.5;">Available in all dimensions (XS–3XL) — fits true to your quantum aura.</p>
+
+                            <div class="buy-section">
+                                <a href="https://www.amazon.com/dp/B0FK36P7NK?th=1&psc=1" target="_blank" class="quantum-button">
+                                    <span class="btn-text">Escape Reality in Style</span>
+                                    <span class="amazon-text">Now Available on Amazon</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="newsletter fade-in">
+                <div class="container">
+                    <h3 class="fade-in-delay-1">Join the Drip Matrix</h3>
+                    <p class="fade-in-delay-2">Enter your email to receive rare cosmic drops, glitch deals, and VIP existential updates. Stay glitched. Stay looped. Stay legendary.</p>
+                    <form class="email-form fade-in-delay-3" name="contact" method="POST" netlify>
+                      <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
+                      <button type="submit" class="email-button">Sync</button>
+                    </form>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container">
+                    <p>&copy; 2025 Quantum Drip. Made with quantum entanglement and emotional calculus.</p>
+                </div>
+            </footer>
+            `;
+
+            document.getElementById('dynamicContent').innerHTML = dynamicHTML;
+
+            // Initialize lazy loading for images
+            initLazyLoading();
+
+            // Initialize deferred animations
+            initDeferredAnimations();
+
+            //Interactive mouse tracking - moved here for dynamic content
+            const hero = document.getElementById('hero');
+            const glow = document.getElementById('glow');
+
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                hero.style.setProperty('--mouse-x', x + '%');
+                hero.style.setProperty('--mouse-y', y + '%');
+
+                glow.style.left = (e.clientX - 150) + 'px';
+                glow.style.top = (e.clientY - 150) + 'px';
+                glow.style.opacity = '0.8';
+            });
+
+            hero.addEventListener('mouseleave', () => {
+                glow.style.opacity = '0';
+            });
+
+            // Hoodie flip functionality - moved here for dynamic content
+            const flipper = document.getElementById('hoodie-flipper');
+            const flipBtns = document.querySelectorAll('.flip-btn');
+            let isFlipped = false;
+
+            // Click flipper to rotate
+            flipper.addEventListener('click', () => {
+                toggleFlip();
+            });
+
+            // Button controls
+            flipBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const side = btn.dataset.side;
+
+                    flipBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    if (side === 'back' && !isFlipped) {
+                        toggleFlip();
+                    } else if (side === 'front' && isFlipped) {
+                        toggleFlip();
+                    }
+                });
+            });
+
+            function toggleFlip() {
+                isFlipped = !isFlipped;
+                flipper.classList.toggle('flipped');
+
+                // Update active button
+                flipBtns.forEach(btn => btn.classList.remove('active'));
+                const targetBtn = document.querySelector(`[data-side="${isFlipped ? 'back' : 'front'}"]`);
+                targetBtn.classList.add('active');
+            }
+
+            // Swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+
+            flipper.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            flipper.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    toggleFlip();
+                }
+            });
+
+            // Unified Audio Control - Moved here
+            const vibeBtn = document.getElementById("vibeInBtn");
+            const track = document.getElementById("quantumTrack");
+            const warning = document.getElementById("audioWarning");
+            const logo = document.querySelector('.logo');
+
+            // Manual click backup
+            vibeBtn.addEventListener("click", () => {
+                const playAttempt = track.play();
+                if (playAttempt !== undefined) {
+                    playAttempt.then(() => {
+                        vibeBtn.classList.add("playing");
+                        // Change logo color to match the beat
+                        if (logo) {
+                            logo.style.filter = 'drop-shadow(0 0 50px rgba(0, 255, 127, 0.9)) hue-rotate(120deg)';
+                            logo.style.animation = 'beat-pulse 0.5s ease-in-out infinite';
+                        }
+                    }).catch(() => {
+                        warning.style.display = "block";
+                    });
+                }
+            });
+
+            // Reset logo when audio ends or pauses
+            track.addEventListener('pause', () => {
+                if (logo) {
+                    logo.style.filter = 'drop-shadow(0 0 30px rgba(255, 105, 180, 0.6))';
+                    logo.style.animation = 'liquid-logo-alive 4s ease-in-out infinite';
+                }
+                vibeBtn.classList.remove("playing");
+            });
+
+            track.addEventListener('ended', () => {
+                if (logo) {
+                    logo.style.filter = 'drop-shadow(0 0 30px rgba(255, 105, 180, 0.6))';
+                    logo.style.animation = 'liquid-logo-alive 4s ease-in-out infinite';
+                }
+                vibeBtn.classList.remove("playing");
+            });
+        }
+
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+
+        function initDeferredAnimations() {
+            // Add animation classes after content is loaded
+            document.body.classList.add('animations-loaded');
+        }
+
+         // Logo Animation on Scroll - Using class toggles to prevent disappearing
+        const logo = document.querySelector('.logo');
+        if (logo) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    logo.classList.remove('logo-hidden');
+                  } else {
+                    logo.classList.add('logo-hidden');
+                  }
+                });
+              },
+              { threshold: 0.1 }
+            );
+
+            observer.observe(logo);
+        }
+
+        // Glitch effect on click
+        document.addEventListener('click', (e) => {
+            const glitchElements = ['.brand-text', '.subtitle', '.main-logo'];
+            glitchElements.forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    element.style.animation = 'none';
+                    element.style.filter = `hue-rotate(${Math.random() * 360}deg) saturate(${1 + Math.random()}) contrast(${1 + Math.random() * 0.5})`;
+                    element.style.transform = `translateX(${(Math.random() - 0.5) * 10}px) translateY(${(Math.random() - 0.5) * 5}px)`;
+
+                    setTimeout(() => {
+                        element.style.animation = '';
+                        element.style.filter = '';
+                        element.style.transform = '';
+                    }, 200);
+                }
+            });
+        });
+
+        // Form handling - store emails in localStorage (simple solution)
+        // document.querySelector('.email-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     const email = this.querySelector('.email-input').value;
+        //     if (email) {
+        //         // Store email in localStorage (you can later export this or connect to a real service)
+        //         let emails = JSON.parse(localStorage.getItem('quantumDripEmails')) || [];
+        //         if (!emails.includes(email)) {
+        //             emails.push(email);
+        //             localStorage.setItem('quantumDripEmails', JSON.stringify(emails));
+        //         }
+
+        //         alert('Welcome to the Quantum Constellation! 🌌\n\nEmail saved locally. Check browser dev tools > Application > Local Storage to see stored emails.');
+        //         this.querySelector('.email-input').value = '';
+        //     }
+        // });
+
+        // Buy Now functionality - simple alert for now (you can connect to Stripe, PayPal, etc. later)
+        function handleBuyNow() {
+            alert('🌌 Quantum Purchase Initiated! 🌌\n\nFor now, this is just a demo. You can later connect this to:\n• Stripe for payments\n• Shopify\n• Square\n• PayPal\n• Or any e-commerce platform\n\nNo rage-quitting required! 🚀');
+        }
+
+        // Dream-like scroll effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const heroEl = document.querySelector('.hero');
+            heroEl.style.transform = `translateY(${rate}px)`;
+
+            // Parallax stars
+            const starfield = document.querySelector('.starfield');
+            if(starfield) {
+                starfield.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 + scrolled * 0.0002})`;
+            }
+        });
+    </script>
+</body>
+</html>
