@@ -41,3 +41,17 @@ function initHeroInteractions() {
 
     hero.addEventListener('mouseleave', () => {
         glow.style.opacity = '0';
+    });
+}
+
+function initHoodieGallery() {
+    // TODO: implement hoodie gallery interactions
+}
+
+function initDeferredEffects() {
+    // TODO: implement deferred visual effects
+}
+
+function initAudioControls() {
+    // TODO: implement audio playback controls
+}
